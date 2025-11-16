@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: lyly-assistant-backend
+    env: node
+    plan: free # Or your preferred plan
+    region: singapore # Or your preferred region
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.1
+      - key: API_KEY
+        fromSecret: true # This tells Render to look for a secret named API_KEY
+      - key: PORT
+        value: 3001
